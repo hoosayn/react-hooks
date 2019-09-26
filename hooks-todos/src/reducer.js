@@ -9,7 +9,12 @@ export default function reducer(state, action){
                 ...state,
                 todos: toggledTodos
             }
-            
+        case "REMOVE_TODO":
+            const deletedtodos = state.todos.filter(t => t.id !== action.payload.id)    
+            console.log("deletedtodos", deletedtodos)
+            return {
+                ...deletedtodos
+            }
         default:
             return state;
     }
